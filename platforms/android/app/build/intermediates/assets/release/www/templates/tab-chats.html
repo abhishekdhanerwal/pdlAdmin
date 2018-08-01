@@ -1,0 +1,33 @@
+<ion-view view-title="PDL Admin Report">
+  <ion-content>
+      <div class="list">
+
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="Enter Date"  ng-model="currentDate" ng-click="openDatePicker()">
+            </label>
+            <button class="button button-small" ng-click="searchData()">
+              Submit
+            </button>
+          </div>
+
+          <div class="spinner" ng-show="progress">
+              <ion-spinner icon="lines" class="spinner-royal"></ion-spinner>
+          </div>
+
+          <div class="list" ng-if="!progress">     
+              <label ng-repeat="row in currentDayTokens" class="item item-input">
+                  <span class="input-label">{{row.time}}</span>
+                  <input type="text" ng-model="row.key">
+                </label>
+            </div>
+
+            <div class="card" ng-if="currentDayTokens == null">
+                
+                <div class="item item-text-wrap text-center">
+                  No Data Present
+                </div>
+        
+        </div>
+  </ion-content>
+</ion-view>
